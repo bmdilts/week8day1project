@@ -7,16 +7,16 @@
 //            /____/
 
 // Dog Constructor & Prototype
-function Dog (status, color, hungry, owner) {
-  this.status = status;
-  this.color = color;
+function Dog (hungry, owner) {
+  this.status = 'normal';
+  this.color = 'black';
   this.hungry = hungry;
   this.owner = owner;
 }
 
-const sadie = new Dog('normal', 'black', false);
-const moonshine = new Dog('normal', 'red', true);
-const atticus = new Dog('normal', 'white', true);
+const sadie = new Dog(false);
+const moonshine = new Dog(true);
+const atticus = new Dog(true);
 
 // Instances of Dog
 // Needed: sadie, moonshine, atticus
@@ -30,16 +30,15 @@ const atticus = new Dog('normal', 'white', true);
 // Human Constructor & Prototype
 function Human (cool) {
   this.cool = cool;
-  this.pet = function(dog){
-    dog.status = 'happy';
-  };
-  this.feed = function(dog){
-    dog.hungry = false;
-  };
 }
+Human.prototype.pet = function(dog){
+  dog.status = 'happy';
+};
+Human.prototype.feed = function(dog){
+  dog.hungry = false;
+};
 
 const mason = new Human(false);
-
 const julia = new Human(true);
 
 
